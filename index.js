@@ -122,4 +122,57 @@ const engineQuest = [
 ];
 
 // Intern questions below
+const internQuest = [
+    {
+        name: 'internName',
+        type: 'input',
+        message: 'What is the name of the intern?',
+        validate: (value) => {
+            if(value) {
+                return true;
+            } else {
+                return 'Please enter an intern name for this role'
+            }
+        }
+    },
 
+    {
+        name: 'internId',
+        type: 'input',
+        message: 'What is the intern ID?',
+        validate: (value) => {
+            if(value) {
+                return true;
+            } else {
+                return 'Please enter the ID for this role'
+            }
+        }
+    },
+
+    {
+        name: 'internEmail',
+        type: 'input',
+        message: 'What is the email of the intern?',
+        validate: (value) => {
+            if(value) {
+                return true;
+            } else {
+                return 'Please enter email of intern'
+            }
+        }
+    },
+
+    {
+        name: 'internSchool',
+        type: 'input',
+        message: 'What is the interns school?',
+        validate: (value) => {
+            if(value) {
+                return true;
+            } else {
+                return 'Please enter the interns school'
+            }
+        }
+    },
+
+];
