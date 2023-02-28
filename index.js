@@ -65,4 +65,61 @@ const manageQuest = [
 
 ];
 
+//engineer questions below
+const engineQuest = [
+    {
+        name: 'engineName',
+        type: 'input',
+        message: 'What is the name of the engineer?',
+        validate: (value) => {
+            if(value) {
+                return true;
+            } else {
+                return 'Please enter an engineer name for this role'
+            }
+        }
+    },
+
+    {
+        name: 'engineId',
+        type: 'input',
+        message: 'What is the engineer ID?',
+        validate: (value) => {
+            if(value) {
+                return true;
+            } else {
+                return 'Please enter the ID for this role'
+            }
+        }
+    },
+
+    {
+        name: 'engineEmail',
+        type: 'input',
+        message: 'What is the email of the engineer?',
+        validate: (value) => {
+            if(value) {
+                return true;
+            } else {
+                return 'Please enter email of engineer'
+            }
+        }
+    },
+
+    {
+        name: 'engineGithub',
+        type: 'input',
+        message: 'What is the engineers Github?',
+        validate: (value) => {
+            if(value) {
+                return true;
+            } else {
+                return 'Please enter the engineer Github'
+            }
+        }
+    },
+
+];
+
+// Intern questions below
 
