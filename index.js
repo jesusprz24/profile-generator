@@ -176,3 +176,46 @@ const internQuest = [
     },
 
 ];
+
+//add another role
+const addAnother = [
+    {
+        name: 'addAnother',
+        type: 'list',
+        message: 'Would you like to add another role?',
+        validate: (value) => {
+            if(value) {
+                return true;
+            } else {
+                return 'Please select an option'
+            }
+        }
+    },
+];
+
+//add manager, engineer or intern role
+function managerRole() {
+    inquirer.prompt(manageQuest).then(respons => {
+        const manage =  new manager(response.managName, response.manageId, reponse.manageEmail, response.manageOfficeNumber)
+        managersArr.push(manage);
+        associatesComplete()
+    });
+};
+
+function enginerRole() {
+    inquirer.createPromptModule(engineQuest).then(respons => {
+        const engine =  new engineer (response.engineName, response.engineId, reponse.engineEmail, response.engineGithub)
+        enginersArr.push(engine);
+        associatesComplete()
+    });
+};
+
+function internRole() {
+    inquirer.createPromptModule(internQuest).then(respons => {
+        const managr =  new intern (response.internName, response.internId, reponse.internEmail, response.internSchool)
+        internsArr.push(intern);
+        associatesComplete()
+    });
+};
+
+//add assocates complete function below
