@@ -218,4 +218,3 @@ function internRole() {
     });
 };
 
-//add associates complete function below
