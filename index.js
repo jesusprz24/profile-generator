@@ -7,7 +7,7 @@ const engineer = require('./lib/engineer');
 const intern = require('./lib/intern');
 const manager = require('./lib/manager');
 
-const templateHTML = require('./src/templateHTML');
+const templateHTML = require('./src/html/index.html');
 
 
 const manageQuest = [
@@ -195,7 +195,7 @@ const addAnother = [
 
 //add manager, engineer or intern role
 function managerRole() {
-    inquirer.prompt(manageQuest).then(respons => {
+    inquirer.prompt(manageQuest).then(response => {
         const manage =  new manager(response.managName, response.manageId, reponse.manageEmail, response.manageOfficeNumber)
         managersArr.push(manage);
         associatesComplete()
@@ -203,7 +203,7 @@ function managerRole() {
 };
 
 function enginerRole() {
-    inquirer.createPromptModule(engineQuest).then(respons => {
+    inquirer.createPromptModule(engineQuest).then(response => {
         const engine =  new engineer (response.engineName, response.engineId, reponse.engineEmail, response.engineGithub)
         enginersArr.push(engine);
         associatesComplete()
@@ -211,11 +211,11 @@ function enginerRole() {
 };
 
 function internRole() {
-    inquirer.createPromptModule(internQuest).then(respons => {
+    inquirer.createPromptModule(internQuest).then(response => {
         const managr =  new intern (response.internName, response.internId, reponse.internEmail, response.internSchool)
         internsArr.push(intern);
         associatesComplete()
     });
 };
 
-//add assocates complete function below
+//add associates complete function below
