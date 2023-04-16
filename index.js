@@ -177,22 +177,6 @@ const internQuest = [
 
 ];
 
-//add another role
-const addAnother = [
-    {
-        name: 'addAnother',
-        type: 'list',
-        message: 'Would you like to add another role?',
-        validate: (value) => {
-            if(value) {
-                return true;
-            } else {
-                return 'Please select an option'
-            }
-        }
-    },
-];
-
 
 function employeeComplete() {
     inquirer.prompt(initialQuestions).then(response => {
