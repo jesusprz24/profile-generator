@@ -193,28 +193,49 @@ const addAnother = [
     },
 ];
 
-//add manager, engineer or intern role
-function managerRole() {
+
+function employeeComplete() {
+    inquirer.prompt(initialQuestions).then(response => {
+      switch (response.role) {
+        case 'Engineer':
+          engineerRole();
+          break;
+        case 'Manager':
+          managerRole();
+          break;
+        case 'Intern':
+          internRole();
+          break;
+        case 'I am done adding roles':
+          console.log('All employees added!');
+          // Write code here to generate HTML page based on the data in employeesArr
+          break;
+      }
+    });
+  }
+  
+  function engineerRole() {
+    inquirer.prompt(engineerQuest).then(response => {
+      const engineer = new Engineer(response.engName, response.engId, response.engEmail, response.engGithub);
+      engineersArr.push(engineer);
+      employeeComplete();
+    });
+  }
+  
+  function managerRole() {
     inquirer.prompt(manageQuest).then(response => {
-        const manage =  new manager(response.managName, response.manageId, reponse.manageEmail, response.manageOfficeNumber)
-        managersArr.push(manage);
-        associatesComplete()
+      const manage = new Manager(response.managName, response.manageId, response.manageEmail, response.manageOfficeNumber);
+      managersArr.push(manage);
+      employeeComplete();
     });
-};
-
-function enginerRole() {
-    inquirer.createPromptModule(engineQuest).then(response => {
-        const engine =  new engineer (response.engineName, response.engineId, reponse.engineEmail, response.engineGithub)
-        enginersArr.push(engine);
-        associatesComplete()
+  }
+  
+  function internRole() {
+    inquirer.prompt(internQuest).then(response => {
+      const intern = new Intern(response.internName, response.internId, response.internEmail, response.internSchool);
+      internsArr.push(intern);
+      employeeComplete();
     });
-};
-
-function internRole() {
-    inquirer.createPromptModule(internQuest).then(response => {
-        const managr =  new intern (response.internName, response.internId, reponse.internEmail, response.internSchool)
-        internsArr.push(intern);
-        associatesComplete()
-    });
-};
-
+  }
+  
+  employeeComplete();
